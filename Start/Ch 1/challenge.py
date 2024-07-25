@@ -10,7 +10,17 @@
 # of "Ticker: Company -- $Price"
 
 class Stock:
-    pass
+    def __init__(self, ticker, price, company) -> None:
+        self.ticker = ticker
+        self.price = price
+        self.company = company
+        self.__secret = 'This is a secret attribute'
+
+    def get_description(self):
+        return f'{self.ticker}: {self.company} -- ${self.price}'
+    
+    def get_secret(self):
+        return self.__secret
 
 # ~~~~~~~~~ TEST CODE ~~~~~~~~~
 msft = Stock("MSFT", 342.0, "Microsoft Corp")
@@ -22,3 +32,17 @@ print(msft.get_description())
 print(goog.get_description())
 print(meta.get_description())
 print(amzn.get_description())
+
+# print(msft.get_secret())
+# d = dir(msft)
+
+print('TempString'.__dir__())
+print('TempString'.isalpha())
+print('TempString'.isidentifier())
+print('TempString'.isalnum())
+print('TempString'.istitle())
+print('TempString'.__getnewargs__())
+print('TempString'.__doc__)
+# print(d)
+# for i in d:
+#     print(eval('msft.' + i))
